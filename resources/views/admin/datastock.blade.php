@@ -26,7 +26,7 @@
                           <td>{{ $stock->article }}</td>
                           <td>{{ $stock->quantity }}</td>
                           <td>{{ $stock->casse }}</td>
-                          <td> 
+                          <td>
                               <a href="#" class="edit-modal btn btn-warning btn-sm" data-id="{{$stock->id}}" data-title="{{$stock->article}}" data-body="{{$stock->quantity}}">
                               <i class="ti-pencil"></i>
                               </a>
@@ -34,7 +34,7 @@
                               <i class="ti-trash"></i>
                               </a></td>
                         </tr>
-                      @endforeach  
+                      @endforeach
                       </tbody>
                     </table>
                   </div>
@@ -42,7 +42,7 @@
               </div><th>
 
             </div>
-            
+
           </div>
 
           <div class="modal fade" id="articles_modal" role="dialog">
@@ -53,8 +53,8 @@
                         <h4 class="modal-title">Ajouter un article</h4>
                     </div>
                     <div class="modal-body">
-                    <form class="article_form" method="POST"> 
-         
+                    <form class="article_form" method="POST">
+
                     <div class="row">
                       <div class="col-md-8">
                         <div class="form-group row">
@@ -75,17 +75,17 @@
                         </div>
                       </div>
                     </div>
-  
+
                     </div>
-      
-                    <div class="modal-footer"> 
+
+                    <div class="modal-footer">
                         <button type="button" class="btn btn-default mr-2" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary mr-2" id="add">Ajouter</button>
                     </div>
-  
+
                   </form>
                 </div>
-       
+
         </div>
     </div>
 </div>
@@ -96,7 +96,7 @@
         <h4 class="modal-title"></h4>
       </div>
       <div class="modal-body">
-      <form class="article_form" method="POST"> 
+      <form class="article_form" method="POST">
       <div class="idContent">
       <div class="row">
            <div class="col-md-10">
@@ -108,7 +108,7 @@
              </div>
            </div>
          </div>
-        </div> 
+        </div>
          <div class="row">
            <div class="col-md-10">
              <div class="form-group row">
@@ -129,19 +129,19 @@
              </div>
            </div>
          </div>
-      
+
          </div>
          <div class="deleteContent">
           Are You sure want to delete <span class="title"></span>?
           <span class="hidden id"></span>
         </div>
-         <div class="modal-footer"> 
+         <div class="modal-footer">
              <button type="button" class="btn btn-default mr-2" data-dismiss="modal">Fermer</button>
              <button type="button" class="btn  mr-2 actionBtn" id="footer_action_button" data-dismiss="modal"></button>
          </div>
 
        </form>
-       
+
       </div>
     </div>
   </div>
@@ -156,7 +156,7 @@
     $('.article_form').show()
   });
   $("#add").click(function() {
-    $.post('/bhar/public/admin/addStock',{
+    $.post('/admin/addStock',{
         '_token': $('input[name=_token]').val(),
         'article': $('input[name=article]').val(),
         'quantity': $('input[name=quantity]').val(),
@@ -195,18 +195,18 @@
     $('#article_m').val($(this).data('title'));
     $('#quantity_m').val($(this).data('body'));
     $('#myModal').modal('show');
-  
+
 });
 
 $('.modal-footer').on('click', '.edit', function() {
 
-  $.post('/bhar/public/admin/editStock',{
+  $.post('/admin/editStock',{
         '_token': $('input[name=_token]').val(),
         'id': $('#id_m').val(),
         'article': $("#article_m").val(),
         'quantity': $('input[name=quantity_m]').val()
       },function(data){
-       
+
         var data = jQuery.parseJSON(data);
           $('.stock' + data.id ).replaceWith("<tr class='stock" + data.id + "'>"+
           "<td>" + data.article + "</td>"+
@@ -229,7 +229,7 @@ $('.modal-footer').on('click', '.edit', function() {
     $('#myModal').modal('show');
   });
   $('.modal-footer').on('click', '.delete', function(){
-    $.post('/bhar/public/admin/deleteStock',{
+    $.post('/admin/deleteStock',{
         '_token': $('input[name=_token]').val(),
         'id': $('#id_m').val()
       },function(data){

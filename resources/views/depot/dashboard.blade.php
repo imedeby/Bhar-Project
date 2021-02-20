@@ -3,7 +3,7 @@
 <div class="content-wrapper">
 <div class="row">
           <div class="col-lg-12 grid-margin stretch-card">
-          <div class="card">  
+          <div class="card">
                 <div class="card-body">
                   <h4 class="card-title" align = "center">Depot</h4>
                   <br>
@@ -54,7 +54,7 @@
                         </tr>
                       </thead>
                       <tbody class = "listfact">
-        
+
                       </tbody>
                     </table>
                   </div>
@@ -62,13 +62,13 @@
               </div><th>
 
             </div>
-            
+
           </div>
 </div>
 <script type="text/javascript">
-  
+
   $(document).ready(function(){
-    $.getJSON("/bhar/public/depot/depinit", function(data){
+    $.getJSON("/depot/depinit", function(data){
       var factures = jQuery.parseJSON(JSON.stringify(data.factures));
       var len = factures.length;
       var items = jQuery.parseJSON(JSON.stringify(data.items));
@@ -83,12 +83,12 @@
       var to = d.getFullYear() + '-' +
       ((''+month).length<2 ? '0' : '') + month + '-' +
       ((''+day).length<2 ? '0' : '') + (day+1);
-     
+
 
 
 
       $('#search').click(function () {
-        
+
           c=1;
           $('#tri').remove();
           var html_code= '';
@@ -114,11 +114,11 @@
             html_code +="<td> <button class='valid-modal btn btn-success btn-sm' data-id='" + factures[i].N_facture + "' data-title='" + factures[i].N_client + "'><span class='ti-check'></span></button><br><button class='report btn btn-primary btn-sm' data-id='" + factures[i].N_facture + "' data-title='" + factures[i].N_client + "'><span class='ti-printer'></span></button> </td>";
             html_code += '</tr>';
             html_item1 = '';
-            html_item2 = ''; 
+            html_item2 = '';
           }
           $(".listfact").html(html_code);
           }
-         
+
       });
       if(c === 0 )
       {
@@ -149,13 +149,13 @@
           }
           $(".listfact").html(html_code);
         }
-      
+
       });
-  
+
   });
     $(document).on('click', '.report', function() {
         var a = $(this).data('id');
-        var url = '/bhar/public/depot/getPDF/' + a;
+        var url = '/depot/getPDF/' + a;
          window.open(url);
       });
 

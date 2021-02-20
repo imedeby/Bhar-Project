@@ -112,12 +112,12 @@
                           </table>
                         </div>
                       </section>
-                      
+
                       </div>
                       </div>
-                      
+
                       </div>
-                      
+
                     </div>
                     <br>
                     <br>
@@ -183,8 +183,8 @@
                 </div>
               </div>
             </div>
-          
-            
+
+
           </div>
 
 
@@ -196,8 +196,8 @@
                         <h4 class="modal-title">Ajouter un article</h4>
                     </div>
                     <div class="modal-body">
-                    <form class="article_form" method="POST"> 
-         
+                    <form class="article_form" method="POST">
+
                     <div class="row">
                       <div class="col-md-10">
                         <div class="form-group row">
@@ -229,15 +229,15 @@
                         </div>
                       </div>
                     </div>
-                    </div>     
-                    <div class="modal-footer"> 
+
+                    <div class="modal-footer">
                         <button type="button" class="btn btn-default mr-2" name="close_t" id="close_t" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary mr-2" id="add">Ajouter</button>
                     </div>
-                    
+
                   </form>
                 </div>
-       
+
         </div>
     </div>
 </div>
@@ -248,7 +248,7 @@
         <h4 class="modal-title"></h4>
       </div>
       <div class="modal-body">
-      <form class="article_form" method="POST"> 
+      <form class="article_form" method="POST">
       <div class="idContent">
       <div class="row">
            <div class="col-md-10">
@@ -280,7 +280,7 @@
              </div>
            </div>
          </div>
-        </div> 
+        </div>
          <div class="row">
            <div class="col-md-10">
              <div class="form-group row">
@@ -318,20 +318,20 @@
           <span class="hidden id"></span>
           <br>
         </div>
-         <div class="modal-footer"> 
+         <div class="modal-footer">
              <button type="button" class="btn btn-default mr-2" data-dismiss="modal">Fermer</button>
              <button type="button" class="btn  mr-2 actionBtn" id="footer_action_button" data-dismiss="modal"></button>
          </div>
 
        </form>
-       
+
       </div>
     </div>
   </div>
 </div>
         </div>
 <script type="text/javascript">
-  
+
   $(document).ready(function(){
 
     $.post('/bhar/public/admin/indexfacture',{
@@ -424,7 +424,7 @@
     $('#quantity_m').val($(this).data('title'));
     $('#prix_m').val($(this).data('body'));
     $('#myModal').modal('show');
-  
+
 });
 
 $('.modal-footer').on('click', '.edit', function() {
@@ -438,7 +438,7 @@ $('.modal-footer').on('click', '.edit', function() {
       },function(data){
         var c =  parseFloat($('#quantity_ma').val()) *  parseFloat($('#prix_ma').val());
         var k = parseFloat($('.total').text());
-      
+
         var data = jQuery.parseJSON(data);
           $('.post' + data.id ).replaceWith("<tr class='post" + data.id + "'>"+
           "<td>" + data.id + "</td>"+
@@ -453,12 +453,12 @@ $('.modal-footer').on('click', '.edit', function() {
             var m = c - b;
             k -= m ;
           }
-          else 
+          else
           {
             k = k + (b - c) ;
           }
-  
-         
+
+
           $('.total').text(k);
       });
 });
@@ -475,11 +475,11 @@ $(document).click(function() {
         }
         else {
           r = ((parseFloat(total) - np ) / parseFloat(total)) * 100 ;
-          r = r.toFixed(2);  
+          r = r.toFixed(2);
           $('#re').val(r);
         }
     }
-}); 
+});
 $(document).on('click', '.delete-modal', function() {
 $('#footer_action_button').text(" Delete");
 $('.actionBtn').removeClass('btn-success');

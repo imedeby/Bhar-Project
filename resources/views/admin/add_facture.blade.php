@@ -43,7 +43,7 @@
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Adress </label>
+                          <label class="col-sm-3 col-form-label">Address </label>
                           <div class="col-sm-9">
                             <input type="text" class="form-control" id="adress" name="adress" required/>
                           </div>
@@ -112,12 +112,12 @@
                           </table>
                         </div>
                       </section>
-                      
+
                       </div>
                       </div>
-                      
+
                       </div>
-                      
+
                     </div>
                     <br>
                     <br>
@@ -183,8 +183,8 @@
                 </div>
               </div>
             </div>
-          
-            
+
+
           </div>
 
 
@@ -196,8 +196,8 @@
                         <h4 class="modal-title">Ajouter un article</h4>
                     </div>
                     <div class="modal-body">
-                    <form class="article_form" method="POST"> 
-         
+                    <form class="article_form" method="POST">
+
                     <div class="row">
                       <div class="col-md-10">
                         <div class="form-group row">
@@ -229,15 +229,15 @@
                         </div>
                       </div>
                     </div>
-                    </div>     
-                    <div class="modal-footer"> 
+                    </div>
+                    <div class="modal-footer">
                         <button type="button" class="btn btn-default mr-2" name="close_t" id="close_t" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary mr-2" id="add">Ajouter</button>
                     </div>
-                    
+
                   </form>
                 </div>
-       
+
         </div>
     </div>
 </div>
@@ -248,7 +248,7 @@
         <h4 class="modal-title"></h4>
       </div>
       <div class="modal-body">
-      <form class="article_form" method="POST"> 
+      <form class="article_form" method="POST">
       <div class="idContent">
       <div class="row">
            <div class="col-md-10">
@@ -280,7 +280,7 @@
              </div>
            </div>
          </div>
-        </div> 
+        </div>
          <div class="row">
            <div class="col-md-10">
              <div class="form-group row">
@@ -318,23 +318,23 @@
           <span class="hidden id"></span>
           <br>
         </div>
-         <div class="modal-footer"> 
+         <div class="modal-footer">
              <button type="button" class="btn btn-default mr-2" data-dismiss="modal">Fermer</button>
              <button type="button" class="btn  mr-2 actionBtn" id="footer_action_button" data-dismiss="modal"></button>
          </div>
 
        </form>
-       
+
       </div>
     </div>
   </div>
 </div>
         </div>
 <script type="text/javascript">
-  
+
   $(document).ready(function(){
 
-    $.post('/bhar/public/admin/indexfacture',{
+    $.post('/admin/indexfacture',{
         '_token': $('input[name=_token]').val(),
         'n_facture': $('input[name=n_facture]').val()
     }, function(data){
@@ -360,7 +360,7 @@
   $(document).on('click','.create-modal', function() {
     $('#create').modal('show');
     $('.article_form').show();
-    $.getJSON("/bhar/public/admin/indexstock", function(data){
+    $.getJSON("/admin/indexstock", function(data){
       var html_code= '';
       $.each(data, function(key, value){
         html_code += '<option value="'+value.article+'">'+value.article+'</option>';
@@ -369,13 +369,16 @@
     });
   });
   $("#add").click(function() {
-
-    $.post('/bhar/public/admin/addItem',{
+    var x = {
         '_token': $('input[name=_token]').val(),
         'article_i': $("#article_i option:selected").val(),
         'quantity_i': $('input[name=quantity_i]').val(),
         'prix_i': $('input[name=prix_i]').val()
-      },function(data){
+    }
+
+    $.post('/admin/addItem',x
+      ,function(data){
+        console.log(data);
         var k = parseInt($('.total').text());
         var data = jQuery.parseJSON(data);
         if ((data.errors)) {
@@ -411,7 +414,7 @@
     $('.deleteContent').hide();
     $('.idContent').hide();
     $('.article_form').show();
-    $.getJSON("/bhar/public/admin/indexstock", function(data){
+    $.getJSON("/admin/indexstock", function(data){
       var html_code= '';
       $.each(data, function(key, value){
         html_code += '<option value="'+value.article+'">'+value.article+'</option>';
@@ -424,12 +427,12 @@
     $('#quantity_m').val($(this).data('title'));
     $('#prix_m').val($(this).data('body'));
     $('#myModal').modal('show');
-  
+
 });
 
 $('.modal-footer').on('click', '.edit', function() {
 
-  $.post('/bhar/public/admin/editItem',{
+  $.post('/admin/editItem',{
         '_token': $('input[name=_token]').val(),
         'id': $('#id_m').val(),
         'article_i': $("#article_m option:selected").val(),
@@ -438,7 +441,7 @@ $('.modal-footer').on('click', '.edit', function() {
       },function(data){
         var c =  parseFloat($('#quantity_ma').val()) *  parseFloat($('#prix_ma').val());
         var k = parseFloat($('.total').text());
-      
+
         var data = jQuery.parseJSON(data);
           $('.post' + data.id ).replaceWith("<tr class='post" + data.id + "'>"+
           "<td>" + data.id + "</td>"+
@@ -453,12 +456,12 @@ $('.modal-footer').on('click', '.edit', function() {
             var m = c - b;
             k -= m ;
           }
-          else 
+          else
           {
             k = k + (b - c) ;
           }
-  
-         
+
+
           $('.total').text(k);
       });
 });
@@ -475,11 +478,11 @@ $(document).click(function() {
         }
         else {
           r = ((parseFloat(total) - np ) / parseFloat(total)) * 100 ;
-          r = r.toFixed(2);  
+          r = r.toFixed(2);
           $('#re').val(r);
         }
     }
-}); 
+});
 $(document).on('click', '.delete-modal', function() {
 $('#footer_action_button').text(" Delete");
 $('.actionBtn').removeClass('btn-success');
@@ -495,7 +498,7 @@ $('#id_m').val($(this).data('id'));
 $('#myModal').modal('show');
 });
 $('.modal-footer').on('click', '.delete', function(){
-  $.post('/bhar/public/admin/deleteItem',{
+  $.post('/admin/deleteItem',{
         '_token': $('input[name=_token]').val(),
         'id': $('#id_m').val()
       },function(data){
@@ -520,7 +523,7 @@ $("#form_fact").on('submit',function() {
         else {
             x=0;
         }
-        $.post('/bhar/public/admin/addFacture',{
+        $.post('/admin/addFacture',{
             '_token': $('input[name=_token]').val(),
             'nom': $('input[name=nom]').val(),
             'source': $("#source option:selected").val(),
@@ -535,7 +538,9 @@ $("#form_fact").on('submit',function() {
             'rem': $('#rem').val(),
             'total': $('.total').text(),
             'tva' : x
-          });
+          }, function(data){
+            console.log(data);
+        });
       }
       else{
         alert("put articles");

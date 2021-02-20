@@ -3,7 +3,7 @@
 <div class="content-wrapper">
 <div class="row">
           <div class="col-lg-12 grid-margin stretch-card">
-          <div class="card">  
+          <div class="card">
                 <div class="card-body">
                   <h4 class="card-title" align = "center">Reglement</h4>
                   <br>
@@ -54,7 +54,7 @@
                         </tr>
                       </thead>
                       <tbody class = "listfact">
-        
+
                       </tbody>
                     </table>
                   </div>
@@ -62,7 +62,7 @@
               </div><th>
 
             </div>
-            
+
           </div>
 </div>
 <div class="modal fade" id="valid" role="dialog">
@@ -73,7 +73,7 @@
                         <h4 class="modal-title">Valider le facture </h4>
                     </div>
                     <div class="modal-body">
-                    <form class="article_form" method="POST"> 
+                    <form class="article_form" method="POST">
                     <div class="idContent">
                       <div class="row">
                         <div class="col-md-10">
@@ -91,15 +91,15 @@
                         <span class="hidden id"></span>
                     </div>
 
-                    </div>     
-                    <div class="modal-footer"> 
+
+                    <div class="modal-footer">
                         <button type="button" class="btn btn-default mr-2" name="close_t" id="close_t" data-dismiss="modal">Fermer</button>
                         <button type="button" class="btn btn-primary mr-2" id="validater"  data-dismiss="modal" >Valider</button>
                     </div>
-                    
+
                   </form>
                 </div>
-       
+
         </div>
     </div>
 </div>
@@ -110,7 +110,7 @@
         <h4 class="modal-title"></h4>
       </div>
       <div class="modal-body">
-      <form class="article_form" method="POST"> 
+      <form class="article_form" method="POST">
       <div class="totalContent">
         <div class="row">
            <div class="col-md-10">
@@ -146,18 +146,18 @@
          </div>
          </div>
         <br>
-         <div class="modal-footer"> 
+         <div class="modal-footer">
              <button type="button" class="btn btn-default mr-2" data-dismiss="modal">Fermer</button>
              <button type="button" class="btn  mr-2 actionBtn" id="footer_action_button" data-dismiss="modal"></button>
          </div>
 
        </form>
-       
+
       </div>
     </div>
   </div>
 </div>
-        </div>
+
 <script type="text/javascript">
 
   $(document).on('click','.valid-modal', function() {
@@ -167,7 +167,7 @@
           $('#id_v').val($(this).data('id'));
       });
       $('.modal-footer').on('click', '#validater', function(){
-          $.post('/bhar/public/reglement/validFacture',{
+          $.post('/reglement/validFacture',{
             '_token': $('input[name=_token]').val(),
             'id': $('#id_v').val()
           },function(data){
@@ -186,10 +186,10 @@
           $('.article_form').show();
           $('#id_m').val($(this).data('id'));
           $('#av').val($(this).data('title'));
-          $('#myModal').modal('show');  
+          $('#myModal').modal('show');
       });
       $('.modal-footer').on('click', '.edit', function(){
-          $.post('/bhar/public/reglement/avanceFacture',{
+          $.post('/reglement/avanceFacture',{
             '_token': $('input[name=_token]').val(),
             'id': $('#id_m').val(),
             'avance2': $('#av').val()
@@ -197,9 +197,9 @@
             location.reload();
           });
       });
-  
+
   $(document).ready(function(){
-    $.getJSON("/bhar/public/reglement/reginit", function(data){
+    $.getJSON("/reglement/reginit", function(data){
       var factures = jQuery.parseJSON(JSON.stringify(data.factures));
       var len = factures.length;
       var items = jQuery.parseJSON(JSON.stringify(data.items));
@@ -214,12 +214,12 @@
       var to = d.getFullYear() + '-' +
       ((''+month).length<2 ? '0' : '') + month + '-' +
       ((''+day).length<2 ? '0' : '') + (day+1);
-     
+
 
 
 
       $('#search').click(function () {
-        
+
           c=1;
           $('#tri').remove();
           var html_code= '';
@@ -253,7 +253,7 @@
           }
           $(".listfact").html(html_code);
           }
-         
+
       });
       if(c === 0 )
       {

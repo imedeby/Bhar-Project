@@ -20,9 +20,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::match(['get', 'post'] ,'/admin', 'AdminController@login');
 Route::group(['middleware' => ['auth' ,'auth.admin']], function(){
@@ -39,7 +36,6 @@ Route::group(['middleware' => ['auth' ,'auth.admin']], function(){
     Route::post('/admin/validFacture','ManageController@validFacture');
     Route::post('/admin/deleteFacture','ManageController@deleteFacture');
     Route::match(['get', 'post'] ,'/admin/addFacture','ManageController@addFacture');
-    Route::match(['get', 'post'] ,'/admin/devis','ManageController@addFacture');
     Route::get('/admin/hist_facture', 'ManageController@histfacture');
     Route::match(['get', 'post'] , '/admin/getPDF/{id}', ['as' => 'admin/getPDF', 'uses' => 'ManageController@getPDF']);
     Route::match(['get', 'post'] ,'/admin/addStock', 'ManageController@addStock');
@@ -75,4 +71,4 @@ Route::group(['middleware' => ['auth' ,'auth.reglement']], function(){
 Route::get('/logout', 'AdminController@logout');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');

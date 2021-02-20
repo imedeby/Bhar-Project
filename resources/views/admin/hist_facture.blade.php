@@ -34,7 +34,7 @@
                               @endif
                            @endforeach</td>
                            <td>{{$facture->date_debut}}</td>
-                           <td>{{$facture->date_fin}}</td>    
+                           <td>{{$facture->date_fin}}</td>
                            <td><button class="report btn btn-primary btn-sm" data-id="{{$facture->N_facture}}"  data-title="{{$facture->N_client}}" ><span class='ti-printer'></span></button></td>
                         </tr>
                         @endforeach
@@ -45,13 +45,13 @@
               </div><th>
 
             </div>
-            
+
           </div>
 </div>
 <script text="text/javascript">
      $(document).on('click', '.report', function() {
         var a = $(this).data('id');
-        var url = '/bhar/public/admin/getPDF/' + a;
+        var url = '/admin/getPDF/' + a;
          window.open(url);
       });
 </script>

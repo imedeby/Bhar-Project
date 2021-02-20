@@ -3,7 +3,7 @@
 <div class="content-wrapper">
 <div class="row">
           <div class="col-lg-12 grid-margin stretch-card">
-          <div class="card">  
+          <div class="card">
                 <div class="card-body">
                   <h4 class="card-title" align = "center">Bon du Commande</h4>
                   <br>
@@ -54,7 +54,7 @@
                         </tr>
                       </thead>
                       <tbody class = "listfact">
-        
+
                       </tbody>
                     </table>
                   </div>
@@ -62,7 +62,7 @@
               </div><th>
 
             </div>
-            
+
           </div>
 </div>
 
@@ -74,7 +74,7 @@
                         <h4 class="modal-title">Valider le facture </h4>
                     </div>
                     <div class="modal-body">
-                    <form class="article_form" method="POST"> 
+                    <form class="article_form" method="POST">
                     <div class="idContent">
                       <div class="row">
                         <div class="col-md-10">
@@ -92,15 +92,15 @@
                         <span class="hidden id"></span>
                     </div>
 
-                    </div>     
-                    <div class="modal-footer"> 
+                    </div>
+                    <div class="modal-footer">
                         <button type="button" class="btn btn-default mr-2" name="close_t" id="close_t" data-dismiss="modal">Fermer</button>
                         <button type="button" class="btn btn-primary mr-2" id="validater"  data-dismiss="modal" >Valider</button>
                     </div>
-                    
+
                   </form>
                 </div>
-       
+
         </div>
     </div>
 </div>
@@ -111,7 +111,7 @@
         <h4 class="modal-title"></h4>
       </div>
       <div class="modal-body">
-      <form class="article_form" method="POST"> 
+      <form class="article_form" method="POST">
       <div class="idContent">
       <div class="row">
            <div class="col-md-10">
@@ -129,22 +129,22 @@
           <span class="hidden id"></span>
         </div>
         <br>
-         <div class="modal-footer"> 
+         <div class="modal-footer">
              <button type="button" class="btn btn-default mr-2" data-dismiss="modal">Fermer</button>
              <button type="button" class="btn  mr-2 actionBtn" id="footer_action_button" data-dismiss="modal"></button>
          </div>
 
        </form>
-       
+
       </div>
     </div>
   </div>
 </div>
         </div>
 <script type="text/javascript">
-  
+
   $(document).ready(function(){
-    $.getJSON("/bhar/public/admin/factinit", function(data){
+    $.getJSON("/admin/factinit", function(data){
       var factures = jQuery.parseJSON(JSON.stringify(data.factures));
       var len = factures.length;
       var items = jQuery.parseJSON(JSON.stringify(data.items));
@@ -159,12 +159,12 @@
       var to = d.getFullYear() + '-' +
       ((''+month).length<2 ? '0' : '') + month + '-' +
       ((''+day).length<2 ? '0' : '') + (day+1);
-     
+
 
 
 
       $('#search').click(function () {
-        
+
           c=1;
           $('#tri').remove();
           var html_code= '';
@@ -190,11 +190,11 @@
             html_code +="<td> <button class='valid-modal btn btn-success btn-sm' data-id='" + factures[i].N_facture + "' data-title='" + factures[i].N_client + "'><span class='ti-check'></span></button><form method='post' action='{{url('admin/editFacture') }}'>  <button type='button' class='edit btn btn-warning btn-sm' value='" + factures[i].N_facture + "' data-id='" + factures[i].N_facture + "' data-title='" + factures[i].N_client + "'><span class='ti-pencil'></span></form></button> <button class='delete-modal btn btn-danger btn-sm' data-id='" + factures[i].N_facture + "' data-title='" + factures[i].N_client + "'><span class='ti-trash'></span></button><br><button class='report btn btn-primary btn-sm' data-id='" + factures[i].N_facture + "' data-title='" + factures[i].N_client + "'><span class='ti-printer'></span></button> </td>";
             html_code += '</tr>';
             html_item1 = '';
-            html_item2 = ''; 
+            html_item2 = '';
           }
           $(".listfact").html(html_code);
           }
-         
+
       });
       if(c === 0 )
       {
@@ -225,13 +225,13 @@
           }
           $(".listfact").html(html_code);
         }
-      
+
       });
-  
+
   });
    $(document).on('click', '.report', function() {
         var a = $(this).data('id');
-        var url = '/bhar/public/admin/getPDF/' + a;
+        var url = '/admin/getPDF/' + a;
          window.open(url);
       });
       $(document).on('click','.valid-modal', function() {
@@ -241,7 +241,7 @@
           $('#id_v').val($(this).data('id'));
       });
       $('.modal-footer').on('click', '#validater', function(){
-          $.post('/bhar/public/admin/validFacture',{
+          $.post('/admin/validFacture',{
             '_token': $('input[name=_token]').val(),
             'id': $('#id_v').val()
           },function(data){
@@ -262,7 +262,7 @@
           $('#myModal').modal('show');
       });
       $('.modal-footer').on('click', '.delete', function(){
-          $.post('/bhar/public/admin/deleteFacture',{
+          $.post('/admin/deleteFacture',{
             '_token': $('input[name=_token]').val(),
             'id': $('#id_m').val()
           },function(data){
@@ -271,7 +271,7 @@
       });
       $(document).on('click', '.edit', function() {
         var a = $(this).data('id');
-        var url = '/bhar/public/admin/editFacture/' + a;
+        var url = '/admin/editFacture/' + a;
          window.location.assign(url);
       });
 </script>

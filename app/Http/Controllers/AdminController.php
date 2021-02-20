@@ -32,7 +32,7 @@ class AdminController extends Controller
             else
             {
                 //echo "failed";die;
-                return redirect('/admin')->with('flash_message_error','Invalid User or Password');
+                return redirect('/home')->with('flash_message_error','Invalid User or Password');
             }
         }
         return view('admin.admin_login');
@@ -50,7 +50,7 @@ class AdminController extends Controller
             return view('/reglement/settings');
         }
     }
-    
+
     public function checkPasswd(Request $request)
     {
         $data = $request->all();
@@ -65,7 +65,7 @@ class AdminController extends Controller
             echo "0";die;
         }
     }
-    
+
     public function updatePasswd(Request $request)
     {
         if($request->isMethod('post'))

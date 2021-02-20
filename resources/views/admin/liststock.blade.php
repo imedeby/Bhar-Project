@@ -3,7 +3,7 @@
 <div class="content-wrapper">
 <div class="row">
           <div class="col-lg-12 grid-margin stretch-card">
-          <div class="card">  
+          <div class="card">
                 <div class="card-body">
                   <h4 class="card-title" align = "center">Stock list</h4>
                   <br>
@@ -48,7 +48,7 @@
                         </tr>
                       </thead>
                       <tbody class = "liststock">
-        
+
                       </tbody>
                     </table>
                   </div>
@@ -56,12 +56,12 @@
               </div><th>
 
             </div>
-            
+
           </div>
 </div>
 <script type="text/javascript">
     $(document).ready(function(){
-    $.getJSON("/bhar/public/admin/stocklist", function(data){
+    $.getJSON("/admin/stocklist", function(data){
       var factures = jQuery.parseJSON(JSON.stringify(data.factures));
       var len = factures.length;
       var stocks = jQuery.parseJSON(JSON.stringify(data.stocks));
@@ -71,7 +71,7 @@
       var len3 = items.length;
       var c = 0;
       $('#search').click(function () {
-        
+
         c=1;
           var html_code= '';
           var html_item1 = '';
@@ -86,7 +86,7 @@
                                 b -= items[k].quantity_i;
                             }
                         }
-                    
+
                     }
                 }
             }

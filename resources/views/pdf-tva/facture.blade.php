@@ -7,7 +7,7 @@
         @font-face {
             font-family: SourceSansPro;
             src: url(SourceSansPro-Regular.ttf);
-        }   
+        }
 
         .clearfix:after {
             content: "";
@@ -18,13 +18,13 @@
 
         body {
             position: relative;
-            width: 18cm;  
-            height: 29.7cm; 
-            margin: 0 auto; 
+            width: 18cm;
+            height: 29.7cm;
+            margin: 0 auto;
             color: #555555;
-            background: #FFFFFF; 
-            font-family: Arial, sans-serif; 
-            font-size: 14px; 
+            background: #FFFFFF;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
             font-family: SourceSansPro;
         }
 
@@ -89,7 +89,7 @@
         }
 
         table th {
-            white-space: nowrap;        
+            white-space: nowrap;
             font-weight: normal;
         }
 
@@ -141,18 +141,18 @@
             background: #FFFFFF;
             border-bottom: none;
             font-size: 1.2em;
-            white-space: nowrap; 
-            border-top: 1px solid #AAAAAA; 
+            white-space: nowrap;
+            border-top: 1px solid #AAAAAA;
         }
 
         table tfoot tr:first-child td {
-            border-top: none; 
+            border-top: none;
         }
 
         table tfoot tr:last-child td {
             color: #cea632;
             font-size: 1.4em;
-            border-top: 1px solid #cea632; 
+            border-top: 1px solid #cea632;
 
         }
 
@@ -167,7 +167,7 @@
 
         #notices{
             padding-left: 6px;
-            border-left: 6px solid #cea632;  
+            border-left: 6px solid #cea632;
         }
 
         #notices .notice {
@@ -199,14 +199,14 @@
         <div>Mail: contact1@afrahbhar.com</div>
         <div>Site web: www.afrahbhar.com</div>
       </div>
-      
+
     </header>
     <main>
       <div id="details" class="clearfix">
         <div id="client">
           <div>Client: {{ $factures->N_client }}</div>
           <div>Mobile: {{ $factures->p_num }}</div>
-          <div>Address: {{ $factures->adress }}</div>  
+          <div>Address: {{ $factures->adress }}</div>
           <div>Matricule fiscal: 0</div>
         </div>
         <div id="invoice">
@@ -228,21 +228,23 @@
         </thead>
         <tbody>
             {{ $n = 0 }}
+            {{ $total = 0 }}
             @foreach($items as $item)
             <tr>
                 <td class="no">{{ $n++ }}</td>
                 <td class="desc">{{ $item->article_i }}</td>
                 <td class="qty">{{ $item->quantity_i }}</td>
                 <td class="unit">{{ $item->prix_i }}</td>
-                <td class="total">{{ $item->prix_i * $item->quantity_i }}</td>
+                <td class="total">{{ $tot=$item->prix_i * $item->quantity_i }}</td>
             </tr>
+                {{ $total = $total + $tot  }}
             @endforeach
         </tbody>
         <tfoot>
           <tr>
             <td colspan="2"></td>
             <td colspan="2">Total</td>
-            <td>{{ $factures->total }}</td>
+            <td>{{ $total }}</td>
           </tr>
           <tr>
             <td colspan="2"></td>
@@ -273,5 +275,5 @@
         <div>ARRETEE LA PRESENTE FACTURE A LA SOMME DE:</div>
       </div>
     </main>
-  
+
 </body></html>
