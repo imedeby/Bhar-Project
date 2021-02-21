@@ -94,6 +94,10 @@ class ManageController extends Controller
     {
         return view('admin.liststock');
     }
+    public function stockd()
+    {
+        return view('depot.liststock');
+    }
     public function stocklist()
     {
       $stocks = DB::table('stocks')->get();
@@ -307,22 +311,24 @@ class ManageController extends Controller
         $data = [
             "factures" => $factures,
             "items" => $items
-        ];
-        $pdf = App::make('dompdf.wrapper');
+        ];/*
         $html = view('pdf+tva.facture', compact('factures','items'))->render();
-        $html1 = view('pdf-tva.facture', compact('factures','items'))->render();
+        $html1 = view('pdf-tva.facture', compact('factures','items'))->render();*/
         if(Auth::user()->hasAnyRole('admin')){
           if($factures->tva == 1){
-            $pdf = PDF::loadHTML($html)->save("pdffacture.pdf");
+            /*$pdf = PDF::loadHTML($html);*/
+              $pdf = view('pdf+tva.facture', compact('factures','items'))->render();
           }
           else{
-            $pdf = PDF::loadHTML($html1)->save("pdffacture.pdf");
+            /*$pdf = PDF::loadHTML($html1);*/
+             $pdf = view('pdf-tva.facture', compact('factures','items'))->render();
           }
         }
         else{
-          $pdf = PDF::loadHTML('pdf.facture', $data);
+          /*$pdf = PDF::loadHTML('pdf.facture', $data);*/
+           $pdf = view('pdf.facture', compact('factures','items'))->render();
         }
-        return $pdf->download('facture.pdf');
+        return $pdf;
       }
 
 }

@@ -2,48 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a077420-2c56-44b2-8dff-8a2dd894bb52" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/depot/liststock.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ManageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ManageController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/backend_images/faces/face1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/backend_images/faces/face10.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/backend_images/faces/face11.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/backend_images/faces/face12.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/backend_images/faces/face13.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/backend_images/faces/face14.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/backend_images/faces/face15.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/backend_images/faces/face16.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/backend_images/faces/face17.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/backend_images/faces/face18.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/backend_images/faces/face19.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/backend_images/faces/face2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/backend_images/faces/face20.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/backend_images/faces/face21.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/backend_images/faces/face22.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/backend_images/faces/face23.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/backend_images/faces/face24.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/backend_images/faces/face25.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/backend_images/faces/face26.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/backend_images/faces/face27.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/backend_images/faces/face28.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/backend_images/faces/face3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/backend_images/faces/face4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/backend_images/faces/face5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/backend_images/faces/face6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/backend_images/faces/face7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/backend_images/faces/face8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/backend_images/faces/face9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/backend_images/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/add_facture.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/add_facture.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/datastock.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/datastock.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/devis.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/devis.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/hist_facture.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/hist_facture.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/liststock.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/liststock.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/depot/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/depot/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/adminLayout/admin_sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/adminLayout/admin_sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pdf-tva/facture.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pdf-tva/facture.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/reglement/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/reglement/dashboard.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -154,13 +116,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/images/backend_images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/depot" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/depot" />
       <recent name="$PROJECT_DIR$/public/images/backend_images" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -173,7 +136,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1613843298613</updated>
-      <workItem from="1613843300643" duration="17949000" />
+      <workItem from="1613843300643" duration="21106000" />
     </task>
     <servers />
   </component>

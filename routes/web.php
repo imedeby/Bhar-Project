@@ -54,6 +54,8 @@ Route::group(['middleware' => ['auth' ,'auth.depot']], function(){
     Route::match(['get', 'post'] , '/depot/getPDF/{id}', ['as' => 'admin/getPDF', 'uses' => 'ManageController@getPDF']);
     Route::get('/depot/depinit','ManageController@depinit');
     Route::get('/depot/datastock', 'ManageController@indexsdepot');
+    Route::get('/depot/liststock','ManageController@stockd');
+    Route::get('/depot/stocklist','ManageController@stocklist');
     Route::get('/depot/settings', 'AdminController@settings');
     Route::get('/depot/check-pwd', 'AdminController@checkPasswd');
     Route::post('/depot/update-pwd', 'AdminController@updatePasswd');
