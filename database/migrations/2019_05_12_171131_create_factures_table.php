@@ -21,17 +21,17 @@ class CreateFacturesTable extends Migration
             $table->string('source_facture');
             $table->float('net_payer');
             $table->float('avance');
-            $table->float('avance2');
-            $table->float('avance3');
-            $table->float('remise');
+            $table->float('avance2')->default(0);
+            $table->float('avance3')->default(0);
+            $table->float('remise')->default(0);
             $table->boolean('tva');
             $table->string('type_caution');
-            $table->text('remarque');
+            $table->text('remarque')->default("");
             $table->date('date_debut');
             $table->date('date_fin');
-            $table->boolean('status_a');
-            $table->boolean('status_d');
-            $table->boolean('status_r');
+            $table->boolean('status_a')->default(0);
+            $table->boolean('status_d')->default(0);
+            $table->boolean('status_r')->default(0);
             $table->timestamps();
         });
     }

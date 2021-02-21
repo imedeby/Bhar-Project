@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Input;
 use App\Stock;
 use App\Item;
 use App\Facture;
-use Carbon\Carbon;
 use PDF;
 use Auth;
 class ManageController extends Controller
