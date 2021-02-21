@@ -38,7 +38,7 @@ then install again some missing packages using
         php artisan migrate
 ```
 
-- Step 6: Seed the database it has just users + it's roles
+- Step 6: Seed the database it has just users + it's roles, users[(admin , pass: admin),(reglement , pass: reglement),(depot , pass: depot)]
 
 ```
         php artisan db:seed
