@@ -2,7 +2,7 @@
 This project is a small ERP for a small business (company name=Afrah Bhar), this project developed to meet their specific requirements.
 ## How to install
 it's recommended to use for this project php version 7.1, 7.2 or 7.3 
-after cloning the repository go to the directory and :
+after cloning the repository go to the directory then follow the steps :
 - Step 1 : Run the command
 ```
          composer install
